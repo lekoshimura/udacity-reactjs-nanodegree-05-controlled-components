@@ -13,7 +13,8 @@ class FormCreate extends React.Component {
 
   onSubmitHandler = (event) => {
     event.preventDefault();
-    this.props.addItem(this.state.value)
+    this.props.addItem(this.state.value);
+    this.setState({value: ''});
   };
 
   render() {
