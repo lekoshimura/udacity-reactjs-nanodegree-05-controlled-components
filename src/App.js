@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import FormCreate from './FormCreate';
+import ButtonDelete from './ButtonDelete';
 
 class App extends React.Component {
   state = {
@@ -34,12 +35,10 @@ class App extends React.Component {
         <FormCreate
           value={this.state.value}
           onFormChanged={this.handleChange}
-          addItem={this.addItem}
-        />
-        <button onClick={this.deleteLastItem} disabled={this.noItemsFound()}>
-          Delete Last Item
-        </button>
-
+          addItem={this.addItem} />
+        <ButtonDelete 
+          deleteLastItem={this.deleteLastItem}
+          noItemsFound={this.noItemsFound} />
         <p className="items">Items</p>
         <ol className="item-list">
           {this.state.items.map((item, index) => <li key={index}>{item}</li>)}
